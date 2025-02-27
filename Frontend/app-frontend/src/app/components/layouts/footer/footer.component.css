@@ -1,0 +1,26 @@
+.container-main footer {
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    border-top: 2px solid #94a3b8;
+    margin-top: 40px;
+  }
+  
+  .container-main footer p {
+    margin: 5px 0;
+  }
+  
+  .container-main footer a {
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .container-main footer a:hover {
+    color: #f87171;
+    text-decoration: underline;
+  }
+  

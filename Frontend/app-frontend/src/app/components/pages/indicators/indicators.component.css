@@ -1,0 +1,214 @@
+/* ====== Global ====== */
+.container-main {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* ====== Secciones Principales ====== */
+.container-sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ====== Indicadores Diarios ====== */
+.container-indicator-daily {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Títulos principales */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+/* Grid de Indicadores */
+.container-indicator-by-day {
+  display: flex;
+  gap: 0px;
+}
+
+/* Tarjeta individual de indicador */
+.indicator-by-day {
+  background-color: #f8fafc;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+/* Títulos internos de indicadores */
+.container-weight-day h3 {
+  text-align: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Subtítulos (si se usan) */
+h3 {
+  font-size: 18px;
+}
+
+/* ====== Leyendas de gráficos ====== */
+.legenda-chart {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.legenda-bal,
+.legenda-loss-between {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.legenda-bal {
+  background-color: #a3b2c4;
+  color: #1e293b;
+}
+
+.legenda-loss-between {
+  background-color: #8c0030;
+  color: #fff;
+}
+
+/* ====== Contenedor del gráfico ====== */
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Filtros y búsqueda ====== */
+.container-search-weight {
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.container-search-weight h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.headers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input de fecha */
+.header-date input {
+  padding: 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #1e293b;
+}
+
+/* Selects y agrupación de inputs */
+.container-inputs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.container-inputs select {
+  padding: 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #1e293b;
+}
+
+/* Botón de consulta */
+.input-submit .button-submit {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.input-submit .button-submit:hover {
+  background-color: #334155;
+}
+
+/* ====== Tabla de Resultados ====== */
+.container-results {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.container-results h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.table-results {
+  overflow-x: auto;
+}
+
+.table-results table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-results th,
+.table-results td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table-results th {
+  background-color: #e0e0e0;
+  color: #000;
+  font-weight: 600;
+}
+
+.table-results tr:hover {
+  background-color: #f1f5f9;
+}

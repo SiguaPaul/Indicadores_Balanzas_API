@@ -1,0 +1,107 @@
+<app-nav></app-nav>
+
+<div class="container-main">
+  <div class="container-sections">
+    <h2>INDICADORES DIARIOS</h2>
+
+    <div class="container-indicator-daily">
+      <div class="container-indicator-by-day">
+        <div class="indicator-by-day">
+          <div class="container-weight-day">
+            <h3>Balanza 1 vs Balanza 1AB</h3>
+            <div class="container-chart">
+              <app-weekly-chart [chartData]="weeklyData"></app-weekly-chart>
+              <div class="legenda-chart">
+                <div class="legenda-bal">
+                  <h4>Balanza 1: {{balance1}}</h4>
+                </div>
+                <div class="legenda-bal">
+                  <h4>Balanza 1AB: {{balance1AB}}</h4>
+                </div>
+                <div class="legenda-loss-between">
+                  <h4>PERDIDA: {{loss}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="indicator-by-day">
+          <div class="container-weight-day">
+            <h3>Balanza 1AB vs Balanza 2</h3>
+            <div class="container-chart">
+              <app-weekly-chart [chartData]="weeklyData1"></app-weekly-chart>
+              <div class="legenda-chart">
+                <div class="legenda-bal">
+                  <h4>Balanza 1AB: {{balance1}}</h4>
+                </div>
+                <div class="legenda-bal">
+                  <h4>Balanza 2: {{balance1AB}}</h4>
+                </div>
+                <div class="legenda-loss-between">
+                  <h4>PERDIDA: {{loss}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-search-weight">
+      <h3>Consulta de peso específico</h3>
+      <div class="headers">
+        <div class="header-date">
+          <input type="date" id="date-filter" />
+        </div>
+        <div class="container-inputs">
+          <div class="input-variety">
+            <select id="destination">
+              <option value="">Destino</option>
+              <option value="Destino 1">Destino 1</option>
+              <option value="Destino 2">Destino 2</option>
+            </select>
+          </div>
+          <div class="input-origin">
+            <select id="variety">
+              <option value="">Variedad</option>
+              <option value="Variedad 1">Variedad 1</option>
+              <option value="Variedad 2">Variedad 2</option>
+            </select>
+          </div>
+          <div class="input-comparison">
+            <!-- Selector para el tipo de comparación -->
+            <select id="comparison">
+              <option value="balanza1_vs_1ab">Balanza 1 VS Balanza 1AB</option>
+              <option value="hidratacion">Hidratación Balanza 1AB VS 2</option>
+              <option value="desperdicio">Desperdicio Balanza 2 VS Balanza 3</option>
+            </select>
+          </div>
+          <div class="input-submit">
+            <button class="button-submit" onclick="updateTable()">Consultar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados -->
+    <div class="container-results">
+      <h3>Resultados</h3>
+      <div class="table-results">
+        <table>
+          <thead>
+            <tr id="table-header">
+              <!-- Se llena dinámicamente -->
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Se llena dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

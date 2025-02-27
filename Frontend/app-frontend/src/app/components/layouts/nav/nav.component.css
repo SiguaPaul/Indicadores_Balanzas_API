@@ -1,0 +1,39 @@
+/* Estilo para la navegación */
+.container-main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-block-end: 2px solid #000;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.container-nav {
+    width: 100%;
+    max-width: 1200px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(119, 119, 119);
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    /* border-block-end: 2px solid rgb(119, 119, 119); */
+    color: #333;
+}

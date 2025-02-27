@@ -1,0 +1,56 @@
+/* Contenedor principal */
+.container-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Estilos para los encabezados de cada sección */
+.container-main h2 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Espaciado entre secciones */
+.container-preclasification,
+.container-opening,
+.container-cloud,
+.container-gv {
+    margin-bottom: 40px;
+}
+
+/* Contenedor de la tabla */
+.container-table {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+.container-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.container-table th,
+.container-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.container-table th {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.container-table tr:hover {
+    background-color: #f8fafc;
+}

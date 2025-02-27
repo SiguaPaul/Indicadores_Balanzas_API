@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-main {
+    width: auto;  /* 100% del ancho de la ventana */
+    height: 80vh; /* 100% de la altura de la ventana */
+    display: flex; /* Opcional: si quieres centrar contenido interno */
+    justify-content: center;
+    align-items: center;
+}
+
+.container-sections {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 0;
+    gap: 0px; /* Espacio uniforme entre secciones */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    padding: 20px;
+    background-color: #F8FAFC;
+    border-radius: 20px;
+    width: 1000px;
+}
+
+#welcome-info {
+    display: grid;
+    max-width: 50%;
+    text-align: left;
+    align-items: center;
+}
+
+#welcome-info .container-text .container-img img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    align-items: left;
+    margin: 10px auto;
+}
+
+.container-text h2 {
+    color: #1E293B;
+}
+
+#welcome-info .container-text .container-img {
+    display: flex;
+    justify-content: flex-start; /* Alinea la imagen a la izquierda */
+    align-items: center; /* Asegura alineación vertical si hay otros elementos */
+}
+
+#welcome-info .container-text .container-img img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px 0; /* Elimina margen auto para evitar que se centre */
+}
+
+#section-extra-info {
+    max-width: 50%;
+    text-align: center;
+}
+
+#section-extra-info img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
