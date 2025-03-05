@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    border-block-end: 2px solid #000;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -36,4 +35,11 @@ nav ul li a {
 nav ul li a:hover {
     /* border-block-end: 2px solid rgb(119, 119, 119); */
     color: #333;
+}
+
+.active-link {
+    position: relative;
+    color: #000 !important; /* Cambia el color del texto a negro */
+    font-weight: bold;
+    border-block-end: 2px solid #000;
 }

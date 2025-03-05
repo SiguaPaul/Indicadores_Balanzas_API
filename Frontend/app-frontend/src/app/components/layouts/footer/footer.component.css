@@ -1,15 +1,29 @@
 .container-main footer {
+    display: grid;
     background-color: #1e293b;
     color: #ffffff;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     font-size: 0.9rem;
     border-top: 2px solid #94a3b8;
     margin-top: 40px;
   }
-  
+
   .container-main footer p {
     margin: 5px 0;
+  }
+
+  .container-main footer .footer-name-starflowers {
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    gap: 5px;
+  }
+
+  .container-main footer .footer-name-starflowers img {
+    width: 25px;
   }
   
   .container-main footer a {

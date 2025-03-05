@@ -2,10 +2,13 @@
   <div class="container-nav">
     <nav>
       <ul>
-        <li><a [routerLink]="['']">INICIO</a></li>
-        <li><a [routerLink]="['/indicators']">INDICADORES</a></li>
-        <li><a [routerLink]="['/outbreak-room']">SALA EN BROTE</a></li>
-        <li><a [routerLink]="['/outbreak-room-by-day']">SALA EN BROTE POR DÍA</a></li>
+        <li *ngFor="let p of pages">
+          <a [routerLink]="p.path" 
+             routerLinkActive="active-link" 
+             [routerLinkActiveOptions]="{ exact: true }">
+            {{ p.title }}
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

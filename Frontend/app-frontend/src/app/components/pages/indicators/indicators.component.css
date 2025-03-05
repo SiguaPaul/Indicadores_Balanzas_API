@@ -2,8 +2,7 @@
 .container-main {
   padding: 0;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   color: #1e293b;
 }
 
@@ -86,13 +85,17 @@ h3 {
 }
 
 .legenda-bal {
-  background-color: #a3b2c4;
+  margin-top: 10px;
+  background-color: #fff;
   color: #1e293b;
+  border: 2px solid #000;
 }
 
 .legenda-loss-between {
-  background-color: #8c0030;
-  color: #fff;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #8c0030;
+  border: 2px solid #8c0030;
 }
 
 /* ====== Contenedor del gráfico ====== */
@@ -211,4 +214,16 @@ h3 {
 
 .table-results tr:hover {
   background-color: #f1f5f9;
+}
+
+@media only screen and (max-width: 1300px) {
+  .container-indicator-by-day {
+    display: flex;
+    flex-direction: column; /* Si necesitas que se acomoden en columna */
+    align-items: center; /* Centrar contenido */
+  }
+
+  .indicator-by-day{
+    width: 100%;
+  }
 }

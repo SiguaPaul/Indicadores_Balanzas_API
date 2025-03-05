@@ -40,6 +40,20 @@ html, body {
     margin: 10px auto;
 }
 
+#welcome-info .container-options {
+    display: grid;
+}
+
+.container-options a {
+    list-style: none;
+    text-decoration: none;
+    padding-left: 0px;
+}
+
+.container-options a:hover {
+    text-decoration: underline;
+}
+
 .container-text h2 {
     color: #1E293B;
 }
