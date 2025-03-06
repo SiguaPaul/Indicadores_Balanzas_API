@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, AfterViewInit, ElementRef, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -6,22 +6,32 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './weekly-chart.component.html',
   styleUrls: ['./weekly-chart.component.css']
 })
-export class WeeklyChartComponent implements AfterViewInit {
+export class WeeklyChartComponent implements AfterViewInit, OnChanges {
   @Input() chartData: any; // Recibe los datos del padre
   @ViewChild('chartCanvas') chartCanvas!: ElementRef; // Referencia al canvas
   chart: any; // Almacena la instancia del gráfico
 
   ngAfterViewInit() {
-    this.createChart();
+    if (this.chartData) {
+      this.createChart();
+    }
+  }
+
+  // Detectar cambios en chartData
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['chartData'] && !changes['chartData'].firstChange) {
+      this.updateChart();
+    }
   }
 
   createChart() {
-    if (!this.chartData) {
+    if (!this.chartData || !this.chartCanvas) {
       console.error("No hay datos para el gráfico.");
       return;
     }
 
     const ctx = this.chartCanvas.nativeElement.getContext('2d');
+
     this.chart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -41,7 +51,7 @@ export class WeeklyChartComponent implements AfterViewInit {
         plugins: {
           title: {
             display: true,
-            text: 'Peso registrado en balanzas durante la semana',
+            text: 'Peso registrado en balanzas durante la semana de la variedad XLENCE',
             font: { size: 18 }
           },
           legend: {
@@ -54,8 +64,8 @@ export class WeeklyChartComponent implements AfterViewInit {
                 const datasetIndex = tooltipItem.datasetIndex;
                 const index = tooltipItem.dataIndex;
                 const weight = this.chartData.datasets[datasetIndex].data[index];
-                const balance = this.chartData.datasets[datasetIndex].balances[index];
-                return `${this.chartData.datasets[datasetIndex].label}: ${weight} kg | Balanza: ${balance}`;
+                const formattedWeight = weight.toFixed(2);
+                return `${this.chartData.datasets[datasetIndex].label}: ${formattedWeight} kg`;
               }
             }
           }
@@ -77,5 +87,23 @@ export class WeeklyChartComponent implements AfterViewInit {
         }
       }
     });
+  }
+
+  updateChart() {
+    if (this.chart) {
+      this.chart.data.labels = this.chartData.labels;
+      this.chart.data.datasets = this.chartData.datasets.map((dataset: any) => ({
+        label: dataset.label,
+        data: dataset.data,
+        borderColor: dataset.borderColor,
+        backgroundColor: dataset.backgroundColor,
+        borderWidth: 2,
+        pointBackgroundColor: dataset.pointBackgroundColor,
+        tension: 0.3
+      }));
+      this.chart.update();
+    } else {
+      this.createChart();
+    }
   }
 }

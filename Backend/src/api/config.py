@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
-from src.services.indicadores import get_daily_logs
-
+from services.indicators import get_indicator_bal1_vs_bal1ab
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Indicadores Balanzas API",
@@ -10,12 +10,13 @@ app = FastAPI(
 )
 
 @app.get("/")
-async def root():
+def read_root():
     return {"message": "Bienvenido a la API Indicadores Balanzas"}
 
-@app.get("/db")
-async def get_balance():
-    return get_daily_logs()
+@app.get("/indicator-daily")
+def get_indicator_daily():
+    # Implementación de la lógica para obtener los indicadores diarios
+    return get_indicator_bal1_vs_bal1ab()
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=9999, reload=True)

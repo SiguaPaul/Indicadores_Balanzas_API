@@ -10,7 +10,7 @@
           <div class="container-weight-day">
             <h3>Balanza 1 vs Balanza 1AB</h3>
             <div class="container-chart">
-              <app-weekly-chart [chartData]="weeklyData"></app-weekly-chart>
+              <app-weekly-chart [chartData]="weeklyData1"></app-weekly-chart>
               <div class="legenda-chart">
                 <div class="legenda-bal">
                   <h4>Balanza 1: {{balance1}}</h4>
@@ -30,7 +30,7 @@
           <div class="container-weight-day">
             <h3>Balanza 1AB vs Balanza 2</h3>
             <div class="container-chart">
-              <app-weekly-chart [chartData]="weeklyData1"></app-weekly-chart>
+              <app-weekly-chart [chartData]="weeklyData2"></app-weekly-chart>
               <div class="legenda-chart">
                 <div class="legenda-bal">
                   <h4>Balanza 1AB: {{balance1}}</h4>
@@ -55,18 +55,19 @@
           <input type="date" id="date-filter" />
         </div>
         <div class="container-inputs">
-          <div class="input-variety">
-            <select id="destination">
-              <option value="">Destino</option>
-              <option value="Destino 1">Destino 1</option>
-              <option value="Destino 2">Destino 2</option>
-            </select>
-          </div>
           <div class="input-origin">
             <select id="variety">
               <option value="">Variedad</option>
-              <option value="Variedad 1">Variedad 1</option>
-              <option value="Variedad 2">Variedad 2</option>
+              <option value="Variedad 1">XLENCE</option>
+              <option value="Variedad 2">CLOUD</option>
+            </select>
+          </div>
+          <div class="input-variety">
+            <select id="destination">
+              <option value="">Destino</option>
+              <option value="preclasificacion">PRECLASIFICACION</option>
+              <option value="gv">GV SIN PELAR</option>
+              <option value="apertura">APERTURA</option>
             </select>
           </div>
           <div class="input-comparison">
@@ -78,20 +79,55 @@
             </select>
           </div>
           <div class="input-submit">
-            <button class="button-submit" onclick="updateTable()">Consultar</button>
+            <button class="button-submit" (click)="get_indicators_bal1_vs_Bal1AB()">Consultar</button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Resultados -->
+    <h3>Resultados</h3>
     <div class="container-results">
-      <h3>Resultados</h3>
       <div class="table-results">
+        <h2>Balanza 1 vs Balanza1AB</h2>
         <table>
           <thead>
             <tr id="table-header">
               <!-- Se llena dinámicamente -->
+              <th>Fecha</th>
+              <th>Balanza 1</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Se llena dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-results">
+        <h2>Hidratación Balanza 1AB vs Balanza 2</h2>
+        <table>
+          <thead>
+            <tr id="table-header">
+              <!-- Se llena dinámicamente -->
+              <th>Fecha</th>
+              <th>Balanza 1</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Se llena dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-results">
+        <h2>Desperdicio Balanza 2 vs Balanza 3</h2>
+        <table>
+          <thead>
+            <tr id="table-header">
+              <!-- Se llena dinámicamente -->
+              <th>Fecha</th>
+              <th>Balanza 1</th>
             </tr>
           </thead>
           <tbody id="table-body">

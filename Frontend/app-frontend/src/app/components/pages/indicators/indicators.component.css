@@ -17,8 +17,6 @@
 /* ====== Indicadores Diarios ====== */
 .container-indicator-daily {
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;
   margin: 0;
@@ -177,17 +175,20 @@ h3 {
 
 /* ====== Tabla de Resultados ====== */
 .container-results {
+  display: flex;
+  gap: 20px;
   margin: 20px auto;
   max-width: 1200px;
 }
 
-.container-results h3 {
+h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .table-results {
   overflow-x: auto;
+  margin: 5px;
 }
 
 .table-results table {
@@ -213,7 +214,7 @@ h3 {
 }
 
 .table-results tr:hover {
-  background-color: #f1f5f9;
+  background-color: #f9f1f1;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -225,5 +226,9 @@ h3 {
 
   .indicator-by-day{
     width: 100%;
+  }
+
+  .container-results {
+    display: grid;
   }
 }

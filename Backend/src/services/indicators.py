@@ -1,0 +1,5 @@
+from config.db import execute_select_query_dictionary
+from config.indicators_db import indicator_bal1_vs_bal1ab_query
+
+def get_indicator_bal1_vs_bal1ab():
+    return execute_select_query_dictionary(indicator_bal1_vs_bal1ab_query)
