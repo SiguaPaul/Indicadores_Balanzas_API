@@ -27,7 +27,6 @@
 h2 {
   text-align: center;
   font-size: 24px;
-  margin: 5px 0;
 }
 
 /* Grid de Indicadores */
@@ -39,8 +38,8 @@ h2 {
 /* Tarjeta individual de indicador */
 .indicator-by-day {
   background-color: #f8fafc;
-  margin: 10px;
-  padding: 20px;
+  margin: 5px;
+  padding: 5px;
   border-radius: 5px;
   flex: 1;
   display: flex;
@@ -55,7 +54,6 @@ h2 {
   text-align: center;
   justify-content: center;
   font-size: 20px;
-  margin-bottom: 15px;
 }
 
 /* Subtítulos (si se usan) */
@@ -83,14 +81,12 @@ h3 {
 }
 
 .legenda-bal {
-  margin-top: 10px;
   background-color: #fff;
   color: #1e293b;
   border: 2px solid #000;
 }
 
 .legenda-loss-between {
-  margin-top: 10px;
   background-color: #fff;
   color: #8c0030;
   border: 2px solid #8c0030;
