@@ -1,47 +1,104 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
+/* Estilo para la navegación */
+.container-main-nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    /* Se elimina margen fijo para evitar desplazamientos en pantallas pequeñas */
+    /* margin-left: 50px;
+    margin-right: 50px; */
+}
+
+.container-main-nav .container-icon {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 10px;
+}
+
+.container-main-nav .container-icon img {
+    max-width: 25px;
+    height: auto;
+}
+
 .container-main {
-    width: auto;  /* 100% del ancho de la ventana */
-    height: 80vh; /* 100% de la altura de la ventana */
-    display: flex; /* Opcional: si quieres centrar contenido interno */
+    width: auto;
+    height: 80vh;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container-sections {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-    padding: 0;
-    gap: 0px; /* Espacio uniforme entre secciones */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    width: 100%;              /* Ocupa el 100% del ancho disponible */
+    max-width: 1000px;        /* No excede los 1000px */
+    margin: 20px auto;        /* Centrado horizontalmente */
     padding: 20px;
     background-color: #F8FAFC;
     border-radius: 20px;
-    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0;
 }
 
-#welcome-info {
+.container-main .container-sections #login {
     display: grid;
     max-width: 50%;
     text-align: left;
     align-items: center;
 }
 
-#welcome-info .container-text .container-img img {
-    max-width: 250px;
-    height: auto;
-    display: block;
-    align-items: left;
-    margin: 10px auto;
+.container-main .container-sections #login .container-form form {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: repeat(2, 1fr);
+    width: 300px;
 }
 
-#welcome-info .container-options {
-    display: grid;
+.container-main .container-sections #login .container-form form input {
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.container-main .container-sections #login .container-form form button {
+    padding: 10px 20px;
+    background-color: #334155;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+.container-main .container-sections #login .container-form form .password-container {
+    position: relative;
+    display: inline-block;
+}
+
+.container-main .container-sections #login .container-form form .password-container input {
+    padding-right: 125px;
+    /* Espacio para el toggle */
+}
+
+.container-main .container-sections #login .container-form form .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 14px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+    user-select: none;
 }
 
 .container-options a {
@@ -55,20 +112,8 @@ html, body {
 }
 
 .container-text h2 {
+    padding-top: 20px;
     color: #1E293B;
-}
-
-#welcome-info .container-text .container-img {
-    display: flex;
-    justify-content: flex-start; /* Alinea la imagen a la izquierda */
-    align-items: center; /* Asegura alineación vertical si hay otros elementos */
-}
-
-#welcome-info .container-text .container-img img {
-    max-width: 250px;
-    height: auto;
-    display: block;
-    margin: 10px 0; /* Elimina margen auto para evitar que se centre */
 }
 
 #section-extra-info {
@@ -81,6 +126,7 @@ html, body {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Centra la imagen */
-    border-radius: 10px; /* Opcional: bordes redondeados */
+    margin: 0 auto;
+    object-fit: cover; 
+    border-radius: 10px;
 }

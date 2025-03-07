@@ -82,6 +82,18 @@ def execute_select_query_dictionary(query: str):
         print(f'Error al ejecutar la consulta: {e}')
         return None
 
+def execute_select_params(query, params):
+    try:
+        conn = get_db_connection(1)
+        cursor = conn.cursor()
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return rows
+    except Exception as e:
+        print(f'Error al ejecutar la consulta: {e}')
+        return None
     
 def execute_insert_query(query: str):
     try:
@@ -95,9 +107,13 @@ def execute_insert_query(query: str):
     except Exception as e:
         print(f'Error al ejecutar la consulta: {e}')
         return None
-
     
-# Test de obtencion de datos desde SQL Server
-indicator_querys = [
-    """SELECT COUNT(*) FROM Peso;""",
-]
+# ***************** QUERYS ****************
+
+# Ahora se consulta tanto el username como el password (hash) para poder validarlos
+login_user_query = """SELECT username, password_hash FROM Users_Indicators WHERE username = ?"""
+
+# *************** Funciones para obtener los resultados ****************
+
+def get_user_db(username: str):
+    return execute_select_params(login_user_query, (username,))

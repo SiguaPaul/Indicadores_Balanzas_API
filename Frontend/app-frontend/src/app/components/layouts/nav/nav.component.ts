@@ -11,7 +11,6 @@ export class NavComponent {
   currentPath: string = '';
 
   pages = [
-    { title: 'INICIO', path: '/' },
     { title: 'INDICADORES', path: '/indicators' },
     { title: 'SALA EN BROTE', path: '/outbreak-room' },
     { title: 'SALA EN BROTE POR DÍA', path: '/outbreak-room-by-day'}
@@ -21,5 +20,11 @@ export class NavComponent {
     this.router.events.subscribe(() => {
       this.currentPath = this.router.url;
     });
+  }
+
+  logOutSuccessfully() {
+    // Implementación de logout
+    console.log('Sesión finalizada');
+    this.router.navigate(['/']);  // Redirección a la página de login
   }
 }

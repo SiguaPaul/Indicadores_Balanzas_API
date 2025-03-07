@@ -50,15 +50,14 @@
             <div class="container-table">
                 <table>
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Grado</th>
-                            <th>Día</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let i of preclasificacion.grade; let idx = index">
                             <td>{{ preclasificacion.grade[idx] }}</td>
-                            <td>{{ preclasificacion.days[idx] }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,15 +68,14 @@
             <div class="container-table">
                 <table>
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Grado</th>
-                            <th>Día</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let i of preclasificacion.grade; let idx = index">
                             <td>{{ preclasificacion.grade[idx] }}</td>
-                            <td>{{ preclasificacion.days[idx] }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -88,15 +86,14 @@
             <div class="container-table">
                 <table>
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Grado</th>
-                            <th>Día</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let i of preclasificacion.grade; let idx = index">
                             <td>{{ preclasificacion.grade[idx] }}</td>
-                            <td>{{ preclasificacion.days[idx] }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -107,15 +104,14 @@
             <div class="container-table">
                 <table>
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Grado</th>
-                            <th>Día</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let i of preclasificacion.grade; let idx = index">
                             <td>{{ preclasificacion.grade[idx] }}</td>
-                            <td>{{ preclasificacion.days[idx] }}</td>
                         </tr>
                     </tbody>
                 </table>

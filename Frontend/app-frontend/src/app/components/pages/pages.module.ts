@@ -9,6 +9,7 @@ import { OutbreakRoomByDayComponent } from './outbreak-room-by-day/outbreak-room
 import { LayoutsModule } from '../layouts/layouts.module';
 import { NavComponent } from '../layouts/nav/nav.component';
 import { WeeklyChartComponent } from '../charts/weekly-chart/weekly-chart.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),  // Asegura que PagesModule usa forChild
     LayoutsModule,
-    WeeklyChartComponent
+    WeeklyChartComponent,
+    FormsModule  // Para usar ngModel en los formularios
   ],
   exports: [RouterModule, NavComponent]
 })

@@ -37,6 +37,20 @@ nav ul li a:hover {
     color: #333;
 }
 
+nav ul button {
+    background-color: #fff;
+    color: #1e293b;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+nav ul button:hover {
+    background-color: #334155;
+    color: #fff;
+}
 .active-link {
     position: relative;
     color: #000 !important; /* Cambia el color del texto a negro */

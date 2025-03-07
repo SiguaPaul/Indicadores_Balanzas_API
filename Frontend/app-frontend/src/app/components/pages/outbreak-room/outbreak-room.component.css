@@ -1,33 +1,24 @@
 /* Contenedor principal */
 .container-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    max-width: auto;
     color: #333;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Estilos para los encabezados de cada sección */
 .container-main h2 {
-    font-size: 1.8rem;
     color: #1e293b;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e2e8f0;
-}
-
-/* Espaciado entre secciones */
-.container-preclasification,
-.container-opening,
-.container-cloud,
-.container-gv {
-    margin-bottom: 40px;
+    padding: 5px;
 }
 
 /* Contenedor de la tabla */
 .container-table {
     overflow-x: auto;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 /* Estilos para la tabla */
@@ -40,7 +31,7 @@
 
 .container-table th,
 .container-table td {
-    padding: 12px 16px;
+    padding: 5px 5px;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
 }

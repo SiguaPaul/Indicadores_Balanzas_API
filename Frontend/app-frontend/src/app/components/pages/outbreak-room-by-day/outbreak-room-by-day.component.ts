@@ -10,4 +10,5 @@ import { Preclasification } from '../../../models/outbreak_room';
 export class OutbreakRoomByDayComponent {
   preclasificacion = new Preclasification();
 
+  
 }

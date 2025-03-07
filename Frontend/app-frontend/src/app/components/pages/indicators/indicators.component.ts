@@ -19,14 +19,14 @@ export class IndicatorsComponent implements OnInit {
     labels: ['Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo', 'Lunes', 'Martes'],
     datasets: [
       {
-        label: 'Balanza 1AB',
+        label: 'Balanza 1',
         data: [], // Inicializa con un array vacío para numeros
         borderColor: '#518AE7',
         backgroundColor: 'rgba(2, 86, 221, 0.68)',
         pointBackgroundColor: '#A9C5F3'
       },
       {
-        label: 'Balanza 1',
+        label: 'Balanza 1AB',
         data: [], // Inicializa con un array vacío de números
         borderColor: '#f34d00',
         backgroundColor: 'rgba(247, 70, 0, 0.76)',
@@ -78,11 +78,11 @@ export class IndicatorsComponent implements OnInit {
         labels: [...labels],
         datasets: [
           {
-            ...this.weeklyData1.datasets[1], 
+            ...this.weeklyData1.datasets[0], 
             data: [...balanza1ABData] 
           },
           {
-            ...this.weeklyData1.datasets[0], 
+            ...this.weeklyData1.datasets[1], 
             data: [...balanza1Data] 
           }
         ]
@@ -93,5 +93,10 @@ export class IndicatorsComponent implements OnInit {
 
       console.log("Datos actualizados:", this.weeklyData1);
     });
+  }
+
+  datafilter() {
+    // Implementar filtro de datos según los parámetros seleccionados
+    console.log("datafilter")
   }
 }

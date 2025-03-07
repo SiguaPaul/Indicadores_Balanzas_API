@@ -1,11 +1,47 @@
-<app-nav></app-nav>
+<div class="container-main-nav">
+    <div class="container-icon">
+        <img src="assets/icon-logo.Bi0O_rGO_Z1iLfJp.svg" alt="">
+        <h3>StarFlowers</h3>
+    </div>
+</div>
+
 <div class="container-main">
     <div class="container-sections">
-        <section id="welcome-info">
+
+        <section id="login">
+            <div class="container-form">
+                <form (ngSubmit)="login()" #loginForm="ngForm">
+                    <h2>Iniciar Sesión</h2>
+                
+                    <!-- 🔹 Campo de usuario con binding -->
+                    <input 
+                        type="text" 
+                        name="username" 
+                        id="username" 
+                        placeholder="Nombre de Usuario" 
+                        [(ngModel)]="usernameValue"
+                        required> 
+                
+                    <!-- 🔹 Contenedor de la contraseña con el botón de mostrar/ocultar -->
+                    <div class="password-container">
+                        <input 
+                            [type]="mostrarContrasena ? 'text' : 'password'" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Contraseña" 
+                            [(ngModel)]="passwordValue"
+                            required> 
+                
+                        <span class="toggle-password" (click)="toggleMostrarContrasena()">
+                            {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
+                        </span>
+                    </div>
+                
+                    <button type="submit" class="button-login">Ingresar</button>
+                </form>                                
+            </div>
+
             <div class="container-text">
-                <div class="container-img">
-                    <img src="assets/logo.DQH3MX5-_S8thR.svg" alt="">
-                </div>
                 <h2>Bienvenido a la plataforma de administración de indicadores de las balanzas</h2>
                 <p>
                     Utilice esta herramienta para consultar, analizar, comparar y generar informes sobre los indicadores
@@ -19,13 +55,6 @@
                     información no reciente y evitar
                     confusiones al momento de filtrar la información.
                 </p>
-            </div>
-
-            <div class="container-options">
-                <h2>Opciones disponibles</h2>
-                <a [routerLink]="['/indicators']">Indicadores</a>
-                <a [routerLink]="['/outbreak-room']">Sala en Brote</a>
-                <a [routerLink]="['/outbreak-room-by-day']">Sala en Brote por Dìa</a>
             </div>
         </section>
 
