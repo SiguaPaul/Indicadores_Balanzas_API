@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
@@ -6,9 +6,9 @@ import { AuthService } from '../../../services/auth.service';
   selector: 'app-home',
   standalone: false,  // Este componente no se exporta como módulo
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']  // Asegúrate de que el nombre del archivo de estilos sea correcto
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   mostrarContrasena: boolean = false;
   usernameValue: string = '';
@@ -18,6 +18,13 @@ export class HomeComponent {
     private authService: AuthService, 
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    // Si ya hay un token guardado, redirige a la página protegida (por ejemplo, /indicators)
+    if (this.authService.getToken()) {
+      this.router.navigate(['/indicators']);
+    }
+  }
 
   // Método para alternar la visualización de la contraseña
   toggleMostrarContrasena(): void {
@@ -30,13 +37,6 @@ export class HomeComponent {
       alert("Por favor, ingresa usuario y contraseña");
       return;
     }
-
-    // const loginData = {
-    //   username: this.usernameValue,
-    //   password: this.passwordValue
-    // };
-  
-    // console.log("📤 Enviando datos al backend:", loginData);  // 📌 Imprime los datos antes de enviarlos
 
     // Enviar la solicitud de login
     this.authService.login(this.usernameValue, this.passwordValue)

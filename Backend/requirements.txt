@@ -1,6 +1,7 @@
-fastapi
-uvicorn
-requests
-pyodbc
-python-dotenv
-bcrypt
+fastapi # API
+uvicorn # servidor para levantar la API
+requests # realizar solicitudes HTTP
+pyodbc # conexion con la base de datos
+python-dotenv # variables de entorno
+bcrypt # encriptacion
+python-jose # tokens

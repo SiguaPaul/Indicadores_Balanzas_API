@@ -1,6 +1,7 @@
 import pyodbc
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 load_dotenv()
 
@@ -53,12 +54,12 @@ def db_conn_endpoint_test():
     conn.close()
     return message_conn
 
-def execute_select_query(query: str):
+def execute_select_query(query: str, params: tuple):
     try:
         conn = get_db_connection(1)
         cursor = conn.cursor()
-        cursor.execute(query)
-        rows = cursor.fetchall()
+        cursor.execute(query, params)
+        rows = cursor.fetchone()
         cursor.close()
         conn.close()
         return rows
@@ -108,12 +109,37 @@ def execute_insert_query(query: str):
         print(f'Error al ejecutar la consulta: {e}')
         return None
     
+def execute_update_query(query: str, params):
+    try:
+        conn = get_db_connection(1)
+        cursor = conn.cursor()
+        cursor.execute(query, params)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return 'Query ejecutada con éxito'
+    except Exception as e:
+        print(f'Error al ejecutar la consulta: {e}')
+        return None
+
 # ***************** QUERYS ****************
 
-# Ahora se consulta tanto el username como el password (hash) para poder validarlos
+# Se consulta tanto el username como el password (hash) para poder validarlos
 login_user_query = """SELECT username, password_hash FROM Users_Indicators WHERE username = ?"""
+
+# Guardar la hora exacta del login en la base de datos
+save_last_login_query = "UPDATE Users_Indicators SET last_login = ? WHERE username = ?"
+
+# Obtener la ultima fecha del ultimo login
+get_last_login_query = """SELECT last_login FROM Users_Indicators WHERE username = ?"""
 
 # *************** Funciones para obtener los resultados ****************
 
 def get_user_db(username: str):
     return execute_select_params(login_user_query, (username,))
+
+def save_login_timestamp(username: str):
+    return execute_update_query(save_last_login_query, (datetime.now(), username))
+
+def get_last_login(username: str):
+    return execute_select_query(get_last_login_query, (username, ))

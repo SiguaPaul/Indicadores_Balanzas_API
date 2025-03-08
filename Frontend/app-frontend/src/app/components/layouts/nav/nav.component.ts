@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,10 @@ export class NavComponent {
     { title: 'SALA EN BROTE POR DÍA', path: '/outbreak-room-by-day'}
   ];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authSer: AuthService
+  ) {
     this.router.events.subscribe(() => {
       this.currentPath = this.router.url;
     });
@@ -24,7 +28,8 @@ export class NavComponent {
 
   logOutSuccessfully() {
     // Implementación de logout
+    this.authSer.logout()
     console.log('Sesión finalizada');
-    this.router.navigate(['/']);  // Redirección a la página de login
+    this.router.navigate([('/')])
   }
 }

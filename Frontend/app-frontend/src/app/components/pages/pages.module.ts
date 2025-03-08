@@ -10,6 +10,7 @@ import { LayoutsModule } from '../layouts/layouts.module';
 import { NavComponent } from '../layouts/nav/nav.component';
 import { WeeklyChartComponent } from '../charts/weekly-chart/weekly-chart.component';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from '../../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,17 +22,19 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-  {
-    path: 'indicators',
-    component: IndicatorsComponent
+  { path: 'indicators', 
+    component: IndicatorsComponent, 
+    canActivate: [AuthGuard] 
   },
   {
     path: 'outbreak-room',
-    component: OutbreakRoomComponent
+    component: OutbreakRoomComponent, 
+    canActivate: [AuthGuard]
   },
   {
     path: 'outbreak-room-by-day',
-    component: OutbreakRoomByDayComponent
+    component: OutbreakRoomByDayComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
