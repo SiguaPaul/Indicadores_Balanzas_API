@@ -51,9 +51,28 @@ nav ul button:hover {
     background-color: #334155;
     color: #fff;
 }
+
 .active-link {
     position: relative;
-    color: #000 !important; /* Cambia el color del texto a negro */
+    color: #000 !important;
+    /* Cambia el color del texto a negro */
     font-weight: bold;
     border-block-end: 2px solid #000;
+}
+
+/* 🔹 Efecto de cierre de sesión: desvanecer + reducir tamaño */
+.fade-out {
+    animation: fadeOutExit 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOutExit {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 }

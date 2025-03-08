@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'app-frontend';
+  title = 'Indicators-frontend';
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.startTokenExpirationCheck();
+  }
 }

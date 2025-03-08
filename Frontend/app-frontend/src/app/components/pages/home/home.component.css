@@ -36,9 +36,12 @@ body {
 }
 
 .container-sections {
-    width: 100%;              /* Ocupa el 100% del ancho disponible */
-    max-width: 1000px;        /* No excede los 1000px */
-    margin: 20px auto;        /* Centrado horizontalmente */
+    width: 100%;
+    /* Ocupa el 100% del ancho disponible */
+    max-width: 1000px;
+    /* No excede los 1000px */
+    margin: 20px auto;
+    /* Centrado horizontalmente */
     padding: 20px;
     background-color: #F8FAFC;
     border-radius: 20px;
@@ -55,11 +58,16 @@ body {
     align-items: center;
 }
 
+h2 {
+    text-align: justify;
+    width: 400px;
+    color: #1E293B;
+}
+
 .container-main .container-sections #login .container-form form {
     display: grid;
     gap: 10px;
     grid-template-rows: repeat(2, 1fr);
-    width: 300px;
 }
 
 .container-main .container-sections #login .container-form form input {
@@ -71,13 +79,18 @@ body {
 }
 
 .container-main .container-sections #login .container-form form button {
-    padding: 10px 20px;
-    background-color: #334155;
+    background-color: #1e293b;
     color: #fff;
+    padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    width: auto;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.container-main .container-sections #login .container-form form button:hover {
+    background-color: #334155;
 }
 
 .container-main .container-sections #login .container-form form .password-container {
@@ -86,7 +99,7 @@ body {
 }
 
 .container-main .container-sections #login .container-form form .password-container input {
-    padding-right: 125px;
+    padding-right: 225px;
     /* Espacio para el toggle */
 }
 
@@ -111,9 +124,9 @@ body {
     text-decoration: underline;
 }
 
-.container-text h2 {
-    padding-top: 20px;
-    color: #1E293B;
+.container-text p {
+    width: 400px;
+    text-align: justify;
 }
 
 #section-extra-info {
@@ -127,6 +140,184 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 10px;
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.container-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc4c4;
+    color: rgb(255, 0, 0);
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 2px solid #fd9d9d;
+    animation: parpadeo 1s ease 2;
+    /* Aplica el parpadeo cada 1 segundo */
+}
+
+.container-message p {
+    text-align: center;
+    width: auto;
+    font-size: 14px;
+}
+
+/* Fondo oscuro cuando se muestra el loader */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.808);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #1E293B;
+    ;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Estilo del spinner */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #1E293B;
+    ;
+    border-top: 5px solid #1E293B;
+    ;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Desvanecer la página cuando el loader aparece */
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.95;
+        transform: scale(0.98);
+    }
+}
+
+/* Fondo oscuro con desenfoque sutil */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Contenedor del halo giratorio */
+.loading-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-block-end: 10px;
+}
+
+/* Anillos de luz giratorios */
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    animation: spinRing 1.5s linear infinite;
+}
+
+/* Estilos individuales para cada anillo */
+.spinner-ring:nth-child(1) {
+    border-top-color: #1E293B;
+    ;
+    animation-duration: 1.5s;
+}
+
+.spinner-ring:nth-child(2) {
+    border-top-color: #31415b;
+    ;
+    /* Azul claro */
+    animation-duration: 2s;
+}
+
+.spinner-ring:nth-child(3) {
+    border-top-color: #6e88b3;
+    ;
+    /* Azul fuerte */
+    animation-duration: 2.5s;
+}
+
+/* Animación de rotación */
+@keyframes spinRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Desvanecer la página mientras carga */
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.95;
+        transform: scale(0.98);
+    }
 }

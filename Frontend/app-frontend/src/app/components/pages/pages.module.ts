@@ -50,7 +50,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),  // Asegura que PagesModule usa forChild
     LayoutsModule,
     WeeklyChartComponent,
-    FormsModule  // Para usar ngModel en los formularios
+    FormsModule,  // Para usar ngModel en los formularios
   ],
   exports: [RouterModule, NavComponent]
 })

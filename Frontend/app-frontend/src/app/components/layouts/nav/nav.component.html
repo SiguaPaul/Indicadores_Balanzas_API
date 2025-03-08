@@ -1,16 +1,19 @@
-<div class="container-main">
-  <div class="container-nav">
-    <nav>
-      <ul>
-        <li *ngFor="let p of pages">
-          <a [routerLink]="p.path" 
-             routerLinkActive="active-link" 
-             [routerLinkActiveOptions]="{ exact: true }">
-            {{ p.title }}
-          </a>
-        </li>
-        <button (click)="logOutSuccessfully()">Cerrar Sesión</button>
-      </ul>
-    </nav>
+<body [class.fade-out]="isLoggingOut">
+  <div class="container-main">
+    <div class="container-nav">
+      <nav>
+        <ul>
+          <li *ngFor="let p of pages">
+            <a [routerLink]="p.path" 
+               routerLinkActive="active-link" 
+               [routerLinkActiveOptions]="{ exact: true }">
+              {{ p.title }}
+            </a>
+          </li>
+          <button (click)="logOut()">Cerrar Sesión</button>
+        </ul>
+      </nav>
+    </div>
+
   </div>
-</div>
+</body>

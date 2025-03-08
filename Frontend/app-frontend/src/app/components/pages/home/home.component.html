@@ -5,12 +5,22 @@
     </div>
 </div>
 
-<div class="container-main">
+<!-- Pantalla de carga elegante -->
+<div class="loading-screen" *ngIf="isLoading">
+    <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+    </div>
+    <p>Cargando...</p>
+</div>
+
+<div class="container-main" [class.fade-out]="isLoading">
     <div class="container-sections">
 
         <section id="login">
             <div class="container-form">
-                <h2>Bienvenido a la plataforma de administración de indicadores de las balanzas</h2>
+                <h2>Bienvenido a la plataforma de Indicadores de las Balanzas</h2>
                 <br>
                 <form (ngSubmit)="login()" #loginForm="ngForm">
                     <h2>Iniciar Sesión</h2>
@@ -39,8 +49,21 @@
                         </span>
                     </div>
                 
-                    <button type="submit" class="button-login">Ingresar</button>
-                </form>                                
+                    <button type="submit" class="button-login" [disabled]="isLoading">
+                        {{ isLoading ? 'Cargando...' : 'Ingresar' }}
+                    </button>
+                </form>
+                <div class="container-message" *ngIf="message_null">
+                    <p>Por favor, complete todos los campos.</p>
+                </div>
+
+                <div class="container-message" *ngIf="message_incorrect">
+                    <p>Nombre de usuario o contraseña incorrectos</p>
+                </div>
+                
+                <div class="container-message" *ngIf="sessionExpired">
+                    <p>Tu sesión ha caducado. Por favor, vuelve a iniciar sesión.</p>
+                </div>
             </div>
 
             <div class="container-text">

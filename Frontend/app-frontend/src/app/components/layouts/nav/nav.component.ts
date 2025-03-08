@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
@@ -8,13 +8,14 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent {
+export class NavComponent{
   currentPath: string = '';
+  isLoggingOut = false; // Nueva variable para manejar la animación
 
   pages = [
     { title: 'INDICADORES', path: '/indicators' },
     { title: 'SALA EN BROTE', path: '/outbreak-room' },
-    { title: 'SALA EN BROTE POR DÍA', path: '/outbreak-room-by-day'}
+    { title: 'SALA EN BROTE POR DÍA', path: '/outbreak-room-by-day' }
   ];
 
   constructor(
@@ -26,10 +27,18 @@ export class NavComponent {
     });
   }
 
-  logOutSuccessfully() {
-    // Implementación de logout
-    this.authSer.logout()
-    console.log('Sesión finalizada');
-    this.router.navigate([('/')])
+  logOut() {
+    this.isLoggingOut = true;
+
+    setTimeout(() => {
+      // Aplica la clase fade-out antes de eliminar el mensaje
+      this.isLoggingOut = false; // Activa el fade-out
+      setTimeout(() => {
+        this.authSer.logout();
+        console.log('Sesión finalizada');
+        this.router.navigate(['/']);
+      }, 1000); // Espera 1 segundo para permitir que la animación de fade-out termine
+    }, 5000); // Tiempo suficiente para que el mensaje de sesión caduque se muestre
   }
+
 }
