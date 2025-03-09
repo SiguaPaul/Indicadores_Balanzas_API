@@ -5,17 +5,7 @@
     </div>
 </div>
 
-<!-- Pantalla de carga elegante -->
-<div class="loading-screen" *ngIf="isLoading">
-    <div class="loading-spinner">
-        <div class="spinner-ring"></div>
-        <div class="spinner-ring"></div>
-        <div class="spinner-ring"></div>
-    </div>
-    <p>Cargando...</p>
-</div>
-
-<div class="container-main" [class.fade-out]="isLoading">
+<div class="container-main">
     <div class="container-sections">
 
         <section id="login">
@@ -48,9 +38,13 @@
                             {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
                         </span>
                     </div>
-                
-                    <button type="submit" class="button-login" [disabled]="isLoading">
-                        {{ isLoading ? 'Cargando...' : 'Ingresar' }}
+
+                    <button 
+                    (click)="animateLogOut()"
+                    [disabled]="isLoading"
+                    >
+                      <span *ngIf="!isLoading">Ingresar</span>
+                      <div *ngIf="isLoading" class="spinner"></div>
                     </button>
                 </form>
                 <div class="container-message" *ngIf="message_null">

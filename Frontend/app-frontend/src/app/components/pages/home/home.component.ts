@@ -41,6 +41,14 @@ export class HomeComponent implements OnInit {
     this.mostrarContrasena = !this.mostrarContrasena;
   }
 
+  animateLogOut() {
+    this.isLoading = true;
+  
+    setTimeout(() => {
+      this.login(); // Llamamos a la función real de cierre de sesión
+    }, 1000); // Simulamos un tiempo de espera (2s)
+  }
+
   // Método para procesar el login
   login(): void {
     if (!this.usernameValue.trim() || !this.passwordValue.trim()) {
@@ -61,7 +69,7 @@ export class HomeComponent implements OnInit {
         setTimeout(() => {
           this.isLoading = false;
           this.router.navigate(['/indicators']);
-        }, 2000);
+        }, 1500);
       },
       error: (error) => {
         this.message_null = false;
