@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
     if (!this.usernameValue.trim() || !this.passwordValue.trim()) {
       this.message_incorrect = false;
       this.message_null = true;
+      this.isLoading = false;
       return;
     }
 
@@ -62,7 +63,7 @@ export class HomeComponent implements OnInit {
     // Enviar solicitud para loguearse
     this.authSer.login(this.usernameValue, this.passwordValue).subscribe({
       next: (response) => {
-        console.log("✅ Login exitoso:", response);
+        console.log("Login exitoso:", response);
         this.message_null = false;
         this.sessionExpired = false;
         // Simula una carga antes de redirigir
@@ -74,9 +75,9 @@ export class HomeComponent implements OnInit {
       error: (error) => {
         this.message_null = false;
         this.sessionExpired = false;
-        this.isLoading = false;
         this.message_incorrect = true;
-        console.error("❌ Error en login:", error);
+        this.isLoading = false;
+        console.error("Error en login:", error);
       }
     });
   }
