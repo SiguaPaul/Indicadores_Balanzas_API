@@ -12,7 +12,7 @@
             <div class="container-form">
                 <h2>Bienvenido a la plataforma de Indicadores de las Balanzas</h2>
                 <br>
-                <form (ngSubmit)="login()" #loginForm="ngForm">
+                <form (ngSubmit)="animateLogOut()" #loginForm="ngForm">
                     <h2>Iniciar Sesión</h2>
                 
                     <!-- 🔹 Campo de usuario con binding -->
@@ -39,8 +39,7 @@
                         </span>
                     </div>
 
-                    <button 
-                    (click)="animateLogOut()"
+                    <button
                     [disabled]="isLoading"
                     >
                       <span *ngIf="!isLoading">Ingresar</span>

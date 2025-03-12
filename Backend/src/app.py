@@ -12,7 +12,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # o ["*"] para permitir cualquier origen
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,11 +32,10 @@ def read_root():
 
 @app.get("/indicator-daily")
 def get_indicator_daily():
-    # Implementación de la lógica para obtener los indicadores diarios
     return get_indicator_bal1_vs_bal1ab()
 
 # Incluye el router de autenticación
 app.include_router(auth_router)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=9999)
+    uvicorn.run("app:app", host="192.168.40.236", port=9999)
