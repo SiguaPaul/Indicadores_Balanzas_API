@@ -13,13 +13,13 @@
               <app-weekly-chart [chartData]="weeklyData1"></app-weekly-chart>
               <div class="legenda-chart">
                 <div class="legenda-bal">
-                  <h4>Balanza 1: {{balance1}}</h4>
+                  <h4>Balanza 1: {{lastValueBalanza1}}</h4>
                 </div>
                 <div class="legenda-bal">
-                  <h4>Balanza 1AB: {{balance1AB}}</h4>
+                  <h4>Balanza 1AB: {{lastValueBalanza1AB}}</h4>
                 </div>
                 <div class="legenda-loss-between">
-                  <h4>PERDIDA: {{loss}}</h4>
+                  <h4>PERDIDA: {{ Firstloss }} %</h4>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
                   <h4>Balanza 2: {{balance1AB}}</h4>
                 </div>
                 <div class="legenda-loss-between">
-                  <h4>PERDIDA: {{loss}}</h4>
+                  <h4>PERDIDA: {{ Secondloss }}</h4>
                 </div>
               </div>
             </div>

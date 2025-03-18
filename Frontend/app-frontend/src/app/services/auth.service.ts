@@ -71,9 +71,14 @@ export class AuthService {
       this.sessionExpiredSubject.next(true); // Notificar que la sesión ha expirado
       this.logout();
       return;
-    }
+    };
 
-    console.log(`Token válido por: ${timeUntilExpiration / 1000} segundos`);
+    const segundos = timeUntilExpiration / 1000;
+    const minutos = segundos / 60;
+
+    const formattedMin = minutos.toFixed(2);
+
+    console.log(`Token válido por: ${Math.round(Number(formattedMin))} minutos`);
 
     // Comprobación cada 5 segundos para mayor precisión
     this.tokenCheckInterval = setInterval(() => {
