@@ -51,7 +51,6 @@ nav ul button {
     position: relative;
     color: #000 !important;
     /* Cambia el color del texto a negro */
-    font-weight: bold;
     border-block-end: 2px solid #000;
 }
 

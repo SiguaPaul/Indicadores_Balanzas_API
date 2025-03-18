@@ -38,4 +38,4 @@ def get_indicator_daily():
 app.include_router(auth_router)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="192.168.40.236", port=9999)
+    uvicorn.run("app:app", host="192.168.200.43", port=9999)
