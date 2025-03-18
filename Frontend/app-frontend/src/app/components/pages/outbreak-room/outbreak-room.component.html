@@ -1,75 +1,77 @@
 <app-nav></app-nav>
 <div class="container-main">
-    <div class="container-preclasification">
-        <h2>INDICADORES DE PRECLASIFICACIÓN</h2>
-        <div class="container-table">
-            <table>
-                <thead>
-                    <tr >
-                        <th>Grado</th>
-                        <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let i of preclasificacion.grade; let idx = index">
-                        <td>{{ preclasificacion.grade[idx] }}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container-tables">
+        <div class="container-preclasification">
+            <h2>INDICADORES DE PRECLASIFICACIÓN</h2>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr >
+                            <th>Grado</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of preclasificacion.grade; let idx = index">
+                            <td>{{ preclasificacion.grade[idx] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="container-opening">
-        <h2>INDICADORES DE APERTURA</h2>
-        <div class="container-table">
-            <table>
-                <thead>
-                    <tr >
-                        <th>Grado</th>
-                        <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let i of preclasificacion.grade; let idx = index">
-                        <td>{{ preclasificacion.grade[idx] }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container-opening">
+            <h2>INDICADORES DE APERTURA</h2>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr >
+                            <th>Grado</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of preclasificacion.grade; let idx = index">
+                            <td>{{ preclasificacion.grade[idx] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="container-cloud">
-        <h2>INDICADORES DE CLOUD</h2>
-        <div class="container-table">
-            <table>
-                <thead>
-                    <tr >
-                        <th>Grado</th>
-                        <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let i of preclasificacion.grade; let idx = index">
-                        <td>{{ preclasificacion.grade[idx] }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container-cloud">
+            <h2>INDICADORES DE CLOUD</h2>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr >
+                            <th>Grado</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of preclasificacion.grade; let idx = index">
+                            <td>{{ preclasificacion.grade[idx] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="container-gv">
-        <h2>INDICADORES DE GV</h2>
-        <div class="container-table">
-            <table>
-                <thead>
-                    <tr >
-                        <th>Grado</th>
-                        <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let i of preclasificacion.grade; let idx = index">
-                        <td>{{ preclasificacion.grade[idx] }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container-gv">
+            <h2>INDICADORES DE GV</h2>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr >
+                            <th>Grado</th>
+                            <th *ngFor="let i of preclasificacion.days; let idx = index">{{ preclasificacion.days[idx] }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of preclasificacion.grade; let idx = index">
+                            <td>{{ preclasificacion.grade[idx] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

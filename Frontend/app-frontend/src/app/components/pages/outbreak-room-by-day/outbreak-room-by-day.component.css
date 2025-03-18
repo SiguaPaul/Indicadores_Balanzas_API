@@ -24,10 +24,9 @@
 /* ====== Filtros y búsqueda ====== */
 .container-search-weight {
     background-color: #f8fafc;
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
     max-width: 1200px;
     text-align: center;
   }
@@ -89,7 +88,7 @@
   
   /* ====== Tabla de Resultados ====== */
   .container-results {
-    margin: 20px auto;
+    margin-top: 5px;
     max-width: 1200px;
   }
   

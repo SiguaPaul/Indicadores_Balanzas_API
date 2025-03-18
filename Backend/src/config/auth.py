@@ -9,7 +9,7 @@ load_dotenv()
 # Define tu clave secreta y parámetros del token
 SECRET_KEY = os.getenv('SECRET_KEY')  # Cámbiala por una clave segura
 ALGORITHM = os.getenv('ALGORITHM')
-ACCESS_TOKEN_EXPIRE_MINUTES = 1
+ACCESS_TOKEN_EXPIRE_MINUTES = 5
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
