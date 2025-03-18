@@ -29,7 +29,7 @@ body {
 
 .container-main {
     width: auto;
-    height: 80vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,5 +218,42 @@ button:disabled {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .container-sections {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        border-radius: 0px;
+    }
+
+    #login {
+        gap: 20px;
+    }
+
+    .container-form form input {
+        width: 350px;
+    }
+
+    .password-container input {
+        padding-right: 40px;
+    }
+
+    #section-extra-info {
+        width: 100%;
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-left: 30px;
+        width: auto;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 }

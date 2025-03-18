@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IndicatorsService } from '../../../services/indicators.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { Hydration_Balanza1AB_vs_Balanza2, Indicators_Balanza1_vs_Balanza1AB, Loss_Balanza2_vs_Balanza3 } from '../../../models/indicators';
 
 @Component({
   selector: 'app-indicators',
@@ -9,6 +10,9 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './indicators.component.css'
 })
 export class IndicatorsComponent implements OnInit {
+  indicatorsData = new Indicators_Balanza1_vs_Balanza1AB().data;
+  hydrationData = new Hydration_Balanza1AB_vs_Balanza2().data;
+  lossData = new Loss_Balanza2_vs_Balanza3().data;
 
   //Variables
   balance1: number = 900;

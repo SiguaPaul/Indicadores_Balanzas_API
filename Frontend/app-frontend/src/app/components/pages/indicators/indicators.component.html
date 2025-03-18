@@ -77,57 +77,89 @@
       </div>
     </div>
 
-    <!-- Resultados -->
-    <h3>Resultados</h3>
-    <div class="container-results">
-      <div class="table-results">
+    <div class="container-tables">
+      <div class="container-preclasification">
         <h2>Balanza 1 vs Balanza1AB</h2>
-        <table>
-          <thead>
-            <tr id="table-header">
-              <!-- Se llena dinámicamente -->
-              <th>Fecha</th>
-              <th>Balanza 1</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <!-- Se llena dinámicamente -->
-          </tbody>
-        </table>
+          <div class="container-table">
+              <table>
+                  <thead>
+                      <tr >
+                          <th>Fecha</th>
+                          <th>Balanza 1</th>
+                          <th>Balanza 1AB</th>
+                          <th>Perdida</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of indicatorsData">
+                      <td>{{ item.date }}</td>
+                      <td>{{ item.balanza_1 }}</td>
+                      <td>{{ item.balanza_1AB }}</td>
+                      <td>{{ item.loss }}</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
       </div>
-
-      <div class="table-results">
+      <div class="container-opening">
         <h2>Hidratación Balanza 1AB vs Balanza 2</h2>
-        <table>
-          <thead>
-            <tr id="table-header">
-              <!-- Se llena dinámicamente -->
-              <th>Fecha</th>
-              <th>Balanza 1</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <!-- Se llena dinámicamente -->
-          </tbody>
-        </table>
+          <div class="container-table">
+              <table>
+                  <thead>
+                    <tr >
+                        <th>Fecha</th>
+                        <th>Balanza 1</th>
+                        <th>Balanza 1AB</th>
+                        <th>Perdida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of hydrationData">
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.balanza_1 }}</td>
+                    <td>{{ item.balanza_1AB }}</td>
+                    <td>{{ item.loss }}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
       </div>
-
-      <div class="table-results">
+      <div class="container-cloud">
         <h2>Desperdicio Balanza 2 vs Balanza 3</h2>
-        <table>
-          <thead>
-            <tr id="table-header">
-              <!-- Se llena dinámicamente -->
-              <th>Fecha</th>
-              <th>Balanza 1</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <!-- Se llena dinámicamente -->
-          </tbody>
-        </table>
+          <div class="container-table">
+              <table>
+                <thead>
+                  <tr >
+                      <th>Fecha</th>
+                      <th>Blanco B2</th>
+                      <th>Blanco B3</th>
+                      <th>Perdida</th>
+                      <th>Tinturado B2</th>
+                      <th>Tinturado B3</th>
+                      <th>Perdida</th>
+                      <th>Arcoiris B2</th>
+                      <th>Arcoiris B3</th>
+                      <th>Perdida</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of lossData">
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.blanco_B2 }}</td>
+                  <td>{{ item.blanco_B3 }}</td>
+                  <td>{{ item.perdida_blanco }}</td>
+                  <td> {{ item.tinturado_B2 }} </td>
+                  <td> {{ item.tinturado_B3 }} </td>
+                  <td> {{ item.perdida_tinturado }} </td>
+                  <td> {{ item.arcoiris_B2 }} </td>
+                  <td> {{ item.arcoiris_B3 }} </td>
+                  <td> {{ item.perdida_arcoiris }} </td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
       </div>
-    </div>
+  </div>
 
   </div>
 </div>
