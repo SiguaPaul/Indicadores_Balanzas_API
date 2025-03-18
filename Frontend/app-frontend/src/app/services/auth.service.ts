@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { environment } from '../environments/environment.development';
 import { Router } from '@angular/router';
 
@@ -28,12 +28,24 @@ export class AuthService {
         // Se espera que la respuesta contenga: { access_token: string, token_type: "bearer" }
         localStorage.setItem(this.tokenKey, response.access_token);
         this.startTokenExpirationCheck();
-      })
+      }),
+      catchError(error => this.handleHttpError(error))
     );
+  };
+
+  private handleHttpError(error: HttpErrorResponse): Observable<never> {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Error de red o del cliente:', error.error.message);
+    } else {
+      console.error(`Error del servidor (${error.status}): ${error.message}`);
+      if (error.status === 0) {
+        console.error('El servidor está caído o la conexión fue rechazada.');
+      }
+    }
+    return throwError(() => new Error('Error en la autenticación. Inténtalo más tarde.'));
   }
 
   logout(): void {
-    console.warn("🔴 Cerrando sesión...");
     localStorage.removeItem(this.tokenKey);
     clearInterval(this.tokenCheckInterval); // Detener verificación periódica
     this.router.navigate(['/']); // Redirigir al login
@@ -55,19 +67,19 @@ export class AuthService {
     let timeUntilExpiration = expTimestamp - currentTimestamp;
 
     if (timeUntilExpiration <= 0) {
-      console.warn("⚠️ Token ya expirado, cerrando sesión...");
+      console.warn("Token ya expirado, cerrando sesión...");
       this.sessionExpiredSubject.next(true); // Notificar que la sesión ha expirado
       this.logout();
       return;
     }
 
-    console.log(`⏳ Token válido por: ${timeUntilExpiration / 1000} segundos`);
+    console.log(`Token válido por: ${timeUntilExpiration / 1000} segundos`);
 
     // Comprobación cada 5 segundos para mayor precisión
     this.tokenCheckInterval = setInterval(() => {
       const now = Date.now();
       if (now >= expTimestamp) {
-        console.warn("⚠️ Token expirado durante la sesión, cerrando sesión...");
+        console.warn("Token expirado durante la sesión, cerrando sesión...");
         this.sessionExpiredSubject.next(true); // Notificar que la sesión ha expirado
         this.logout();
       }

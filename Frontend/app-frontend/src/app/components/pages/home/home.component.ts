@@ -45,13 +45,14 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
   
     setTimeout(() => {
-      this.login(); // Llamamos a la función real de cierre de sesión
+      this.login(); // Llamamos a la función real de inicio de sesión
     }, 1000); // Simulamos un tiempo de espera (2s)
   }
 
   // Método para procesar el login
   login(): void {
     if (!this.usernameValue.trim() || !this.passwordValue.trim()) {
+      this.sessionExpired = false;
       this.message_incorrect = false;
       this.message_null = true;
       this.isLoading = false;
@@ -63,7 +64,6 @@ export class HomeComponent implements OnInit {
     // Enviar solicitud para loguearse
     this.authSer.login(this.usernameValue, this.passwordValue).subscribe({
       next: (response) => {
-        console.log("Login exitoso:", response);
         this.message_null = false;
         this.sessionExpired = false;
         // Simula una carga antes de redirigir

@@ -10,8 +10,7 @@ DB_CONNECTIONS = {}
 
 # Diccionario de configuraciones para múltiples bases de datos
 DB_CONFIG = {
-    1: {"name": "Balanzas"},
-    # 2: {"name": "AsistenciasStar"},
+    1: {"name": f"{os.getenv('DB_NAME')}"}
 }
 
 def get_db_connection(db_id):
